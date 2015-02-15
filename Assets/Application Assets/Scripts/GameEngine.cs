@@ -18,7 +18,7 @@ public class GameEngine : MonoBehaviour {
 		}
 
 		for (int i = 0; i < 1000; i++) {
-			Instantiate(twinklePrefab, new Vector3(Random.Range (-400f, 400f), -100, Random.Range (-400f, 400f)), Quaternion.identity);
+			Instantiate(twinklePrefab, new Vector3(Random.Range (-400f, 650f), -100, Random.Range (-400f, 650f)), Quaternion.identity);
 		}
 	}
 }

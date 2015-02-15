@@ -11,7 +11,6 @@ public class GameEngine : MonoBehaviour {
 
 	void Awake () {
 		GameObject asteroid;
-		GameObject twinkle;
 
 		for (int i = 0; i < 25; i++) {
 			asteroid = (GameObject) Instantiate(asteroidPrefab, new Vector3(Random.Range (-80f, 80f), 0, Random.Range (-80f, 80f)), Quaternion.identity);

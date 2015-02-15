@@ -15,12 +15,12 @@ public class PlayerShip : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.A)) {
 			rigidbody.angularVelocity = Vector3.zero;
-			transform.Rotate(Vector3.down * 2.7f);
+			transform.Rotate(Vector3.down * 1.7f);
 		}
 
 		if (Input.GetKey(KeyCode.D)) {
 			rigidbody.angularVelocity = Vector3.zero;
-			transform.Rotate(Vector3.up * 2.7f);
+			transform.Rotate(Vector3.up * 1.7f);
 		}
 
 		if (Input.GetKey(KeyCode.W)) {

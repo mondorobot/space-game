@@ -9,8 +9,8 @@ public class PlayerShip : MonoBehaviour {
 			Debug.Log ("shoot!");
 			Rigidbody bullet = (Rigidbody) Instantiate(laserPrefab, transform.position, Quaternion.identity);
 
-			bullet.transform.Rotate(transform.rotation.eulerAngles + 90f * Vector3.up);
-			bullet.rigidbody.AddForce(-1000f * transform.forward);
+			bullet.transform.Rotate(transform.rotation.eulerAngles);
+			bullet.rigidbody.AddForce(1000f * transform.right);
 		}
 
 		if (Input.GetKey(KeyCode.A)) {
@@ -24,14 +24,14 @@ public class PlayerShip : MonoBehaviour {
 		}
 
 		if (Input.GetKey(KeyCode.W)) {
-			rigidbody.AddForce(transform.forward * -5f);
+			rigidbody.AddForce(transform.right * 5f);
 		}
 
 		if (Input.GetKey(KeyCode.S)) {
-			rigidbody.AddForce(transform.forward * 5f);
+			rigidbody.AddForce(transform.right * -5f);
 		}
 
-		Camera.main.transform.position = new Vector3 (transform.position.x - 10, 30, transform.position.z + 10);
+		Camera.main.transform.position = new Vector3 (transform.position.x - 20, 40, transform.position.z - 20);
 		Camera.main.transform.LookAt (transform);
 	}
 }

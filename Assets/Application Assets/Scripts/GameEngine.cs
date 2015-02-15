@@ -7,10 +7,9 @@ public class GameEngine : MonoBehaviour {
 	public GameObject planetPrefab;
 	public GameObject twinklePrefab;
 
-	void Start () {
-		Instantiate (playerPrefab, Vector3.zero, Quaternion.identity);
-		Instantiate (planetPrefab, new Vector3(20f, 0, -20f), Quaternion.identity);
+	public GameObject tradingScreen;
 
+	void Awake () {
 		GameObject asteroid;
 		GameObject twinkle;
 
@@ -20,8 +19,7 @@ public class GameEngine : MonoBehaviour {
 		}
 
 		for (int i = 0; i < 1000; i++) {
-			twinkle = (GameObject) Instantiate(twinklePrefab, new Vector3(Random.Range (-400f, 400f), -100, Random.Range (-400f, 400f)), Quaternion.identity);
-			//twinkle.transform.localScale = Vector3.one * Random.Range (0.5f, 2.5f);
+			Instantiate(twinklePrefab, new Vector3(Random.Range (-400f, 400f), -100, Random.Range (-400f, 400f)), Quaternion.identity);
 		}
 	}
 }

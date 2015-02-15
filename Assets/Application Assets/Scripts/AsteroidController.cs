@@ -2,7 +2,15 @@
 using System.Collections;
 
 public class AsteroidController : MonoBehaviour {
+	private GameEngine gameEngine;
+	private GameObject asteroidPrefab;
 	public GameObject sparksPrefab;
+
+	void Awake () {
+		GameObject mainEngine = GameObject.FindGameObjectWithTag ("GameController");
+		gameEngine = mainEngine.GetComponent<GameEngine> ();
+		asteroidPrefab = gameEngine.asteroidPrefab;
+	}
 
 	void OnTriggerEnter(Collider col) {
 		if (col.gameObject.tag == "_bullet") {
@@ -11,9 +19,6 @@ public class AsteroidController : MonoBehaviour {
 			gameObject.rigidbody.AddExplosionForce(1000f, col.gameObject.transform.position, 0);
 			Destroy (col.gameObject);
 			Destroy (gameObject);
-
-			GameObject game = GameObject.FindWithTag("_main_engine");
-			GameObject asteroidPrefab = game.GetComponent<GameEngine>().asteroidPrefab;
 
 			GameObject asteroid = (GameObject) Instantiate(asteroidPrefab, new Vector3(Random.Range (-80f, 80f), 0, Random.Range (-80f, 80f)), Quaternion.identity);
 			asteroid.transform.localScale = Vector3.one * Random.Range (0.5f, 2.5f);

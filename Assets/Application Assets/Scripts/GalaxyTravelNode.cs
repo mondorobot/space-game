@@ -22,8 +22,6 @@ public class GalaxyTravelNode : MonoBehaviour {
 	}
 	
 	void OnMouseDown () {
-		Debug.Log ("zomg!");
-
 		GameObject[] nodes = GameObject.FindGameObjectsWithTag ("_galaxy_travel_node");
 
 		for (int i = 0; i < nodes.Length; i++) {
@@ -36,8 +34,6 @@ public class GalaxyTravelNode : MonoBehaviour {
 	}
 
 	public void HideMenu () {
-		Debug.Log ("go away!");
-		
 		isActive = false;
 		travelMenu.SetActive (isActive);
 	}

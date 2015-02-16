@@ -12,12 +12,7 @@ public class HyperspaceBoundary : MonoBehaviour {
 			HyperspaceBoundaryMenuInterface hyperspaceInterface = player.hyperspaceMenu.GetComponent<HyperspaceBoundaryMenuInterface>();
 			hyperspaceInterface.enterButton.onClick.AddListener(() => {
 				Debug.Log ("Warp speed, Scotty! Aye aye, cap'n!");
-
-				if (Application.loadedLevelName == "Thor Galaxy") {
-					Application.LoadLevel("Apollo Galaxy");
-				} else {
-					Application.LoadLevel("Thor Galaxy");
-				}
+				Application.LoadLevel("Hyperspace Map");
 			});
 		}
 	}

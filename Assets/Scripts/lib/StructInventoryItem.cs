@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public class StructSaleItem {
+public class StructInventoryItem {
   public string itemName;
-  public int itemPrice;
+  public int itemQty;
 };

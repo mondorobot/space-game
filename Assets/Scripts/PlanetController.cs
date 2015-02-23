@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections.Generic;
 
 public class PlanetController : MonoBehaviour {
@@ -76,13 +77,13 @@ public class PlanetController : MonoBehaviour {
     itemsForSale = new List<StructSaleItem>();
     saleItemPrefab = tradingInterface.itemForSalePrefab;
 
-    for (var i = 0; i < GameEngine.knownItemTypes.Count; i++) {
-      knownItem = GameEngine.knownItemTypes[i];
-      price = Random.Range(knownItem.itemLow, knownItem.itemHigh);
+    for (var i = 0; i < GameCore.knownItemTypes.Count; i++) {
+      knownItem = GameCore.knownItemTypes[i];
+      price = UnityEngine.Random.Range(knownItem.itemLow, knownItem.itemHigh);
 
       newItem = new StructSaleItem ();
       newItem.itemName = knownItem.itemName;
-      newItem.itemPrice = price.ToString();
+      newItem.itemPrice = price;
 
       itemsForSale.Add(newItem);
     }
@@ -96,19 +97,54 @@ public class PlanetController : MonoBehaviour {
     }
   }
 
-  void InitTradingMenuItem (StructSaleItem inventoryItem, int offset) {
+  void InitTradingMenuItem (StructSaleItem saleItem, int offset) {
     Image menuItem = (Image) Instantiate(saleItemPrefab, saleItemPrefab.transform.position + new Vector3(0, offset, 0), Quaternion.identity);
     menuItem.transform.SetParent (tradingMenu.transform, false);
 
     MenuItemForSale menuInterface = menuItem.GetComponent<MenuItemForSale>();
-    menuInterface.itemName.text = inventoryItem.itemName;
-    menuInterface.itemPrice.text = inventoryItem.itemPrice;
+    menuInterface.itemName.text = saleItem.itemName;
+    menuInterface.itemPrice.text = saleItem.itemPrice.ToString();
 
     menuInterface.buyButton.onClick.AddListener(() => {
-      Debug.Log("here we go price tag, here we go!");
-      Debug.Log(inventoryItem.itemPrice);
-      Debug.Log(inventoryItem.itemName);
+      HandleBuyItem(saleItem);
     });
+  }
+
+  StructInventoryItem GetInventoryItem(string itemName) {
+    StructInventoryItem inventoryItem;
+    StructInventoryItem emptyItem;
+
+    if (!PlayerCore.self.inventory.ContainsKey(itemName)) {
+      emptyItem = new StructInventoryItem();
+
+      emptyItem.itemName = itemName;
+      emptyItem.itemQty = 0;
+
+      PlayerCore.self.inventory.Add(itemName, emptyItem);
+    }
+
+    inventoryItem = PlayerCore.self.inventory[itemName];
+
+    return inventoryItem;
+  }
+
+  void HandleBuyItem(StructSaleItem saleItem) {
+    string itemName;
+
+    itemName = saleItem.itemName;
+    StructInventoryItem inventoryItem = GetInventoryItem(itemName);
+
+    Debug.Log ("Ok, it's a deal! 1 " + itemName + " for $" + saleItem.itemPrice);
+
+    PlayerCore.self.money -= saleItem.itemPrice;
+
+    inventoryItem.itemQty += 1;
+    PlayerCore.self.inventory[itemName] = inventoryItem;
+
+    Debug.Log("Bank Balance: $" + PlayerCore.self.money);
+    Debug.Log("Player now has: " + inventoryItem.itemQty + " " + itemName + "(s)");
+
+    GameCore.self.Save();
   }
 
   // Show Hide

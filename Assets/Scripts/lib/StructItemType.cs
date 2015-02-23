@@ -1,6 +1,7 @@
-using System.Collections.Generic;
+using System;
 
-public struct StructItemType {
+[Serializable]
+public class StructItemType {
   public string itemName;
   public int itemLow;
   public int itemHigh;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SceneControl : MonoBehaviour {
+public class SceneCore : MonoBehaviour {
   public GameObject asteroidPrefab;
   public GameObject twinklePrefab;
 

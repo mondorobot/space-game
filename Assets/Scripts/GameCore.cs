@@ -7,6 +7,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class GameCore : MonoBehaviour {
   public static GameCore self;
 
+  public int money;
+  public Dictionary<string,StructInventoryItem> inventory;
+
   // properties
   public static List<StructItemType> knownItemTypes;
 
@@ -28,8 +31,8 @@ public class GameCore : MonoBehaviour {
     FileStream file = File.Create(Application.persistentDataPath + "/playerInventory.dat");
 
     PlayerData data = new PlayerData();
-    data.money = PlayerCore.self.money;
-    data.inventory = PlayerCore.self.inventory;
+    data.money = GameCore.self.money;
+    data.inventory = GameCore.self.inventory;
 
     bf.Serialize(file, data);
     file.Close();
@@ -52,21 +55,21 @@ public class GameCore : MonoBehaviour {
       PlayerData data = (PlayerData) bf.Deserialize(file);
       file.Close();
 
-      PlayerCore.self.money = data.money;
-      PlayerCore.self.inventory = data.inventory;
+      GameCore.self.money = data.money;
+      GameCore.self.inventory = data.inventory;
 
       Debug.Log("DONE");
     }
 
-    if (PlayerCore.self.money < 0) {
+    if (GameCore.self.money < 0) {
       NewGame();
     }
   }
 
   void NewGame() {
     Debug.Log("Starting a new game...");
-    PlayerCore.self.money = 10000;
-    PlayerCore.self.inventory = new Dictionary<string,StructInventoryItem>();
+    GameCore.self.money = 10000;
+    GameCore.self.inventory = new Dictionary<string,StructInventoryItem>();
     Save();
   }
 
@@ -80,21 +83,75 @@ public class GameCore : MonoBehaviour {
     knownItemTypes = new List<StructItemType>();
 
     newItemType = new StructItemType();
-    newItemType.itemName = "Obsidian";
-    newItemType.itemLow = 100;
-    newItemType.itemHigh = 1000;
+    newItemType.itemName = "Obsidian Brick";
+    newItemType.itemLow = 950;
+    newItemType.itemHigh = 970;
+    newItemType.itemCategory = "mineral";
+    newItemType.itemSubCategory = "ore";
+    knownItemTypes.Add(newItemType);
+
+    newItemType = new StructItemType();
+    newItemType.itemName = "Ultonimum Ingot";
+    newItemType.itemLow = 2980;
+    newItemType.itemHigh = 3200;
+    newItemType.itemCategory = "mineral";
+    newItemType.itemSubCategory = "ore";
+    knownItemTypes.Add(newItemType);
+
+    newItemType = new StructItemType();
+    newItemType.itemName = "Megalantium Ore";
+    newItemType.itemLow = 390;
+    newItemType.itemHigh = 420;
+    newItemType.itemCategory = "mineral";
+    newItemType.itemSubCategory = "ore";
     knownItemTypes.Add(newItemType);
 
     newItemType = new StructItemType ();
-    newItemType.itemName = "Food";
-    newItemType.itemLow = 5;
+    newItemType.itemName = "Zardoz Beetle";
+    newItemType.itemLow = 23;
     newItemType.itemHigh = 25;
+    newItemType.itemCategory = "food";
+    newItemType.itemSubCategory = "animal";
     knownItemTypes.Add(newItemType);
 
     newItemType = new StructItemType ();
-    newItemType.itemName = "Cotton";
-    newItemType.itemLow = 20;
+    newItemType.itemName = "Snaz Plant";
+    newItemType.itemLow = 17;
+    newItemType.itemHigh = 20;
+    newItemType.itemCategory = "food";
+    newItemType.itemSubCategory = "plant";
+    knownItemTypes.Add(newItemType);
+
+    newItemType = new StructItemType ();
+    newItemType.itemName = "Quimjom Juice";
+    newItemType.itemLow = 5;
+    newItemType.itemHigh = 10;
+    newItemType.itemCategory = "food";
+    newItemType.itemSubCategory = "plant";
+    knownItemTypes.Add(newItemType);
+
+    newItemType = new StructItemType ();
+    newItemType.itemName = "Groking Cloth";
+    newItemType.itemLow = 55;
     newItemType.itemHigh = 60;
+    newItemType.itemCategory = "textile";
+    newItemType.itemSubCategory = "organic";
+    knownItemTypes.Add(newItemType);
+
+    newItemType = new StructItemType ();
+    newItemType.itemName = "Derpalated Nylon";
+    newItemType.itemLow = 47;
+    newItemType.itemHigh = 52;
+    newItemType.itemCategory = "textile";
+    newItemType.itemSubCategory = "synthetic";
+    knownItemTypes.Add(newItemType);
+
+    newItemType = new StructItemType ();
+    newItemType.itemName = "Thneed Yarn";
+    newItemType.itemLow = 80;
+    newItemType.itemHigh = 84;
+    newItemType.itemCategory = "textile";
+    newItemType.itemSubCategory = "organic";
     knownItemTypes.Add(newItemType);
   }
 }

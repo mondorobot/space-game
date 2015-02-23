@@ -6,7 +6,7 @@ public class HyperspaceBoundary : MonoBehaviour {
     if (col.gameObject.tag == "Player") {
       Debug.Log ("Entering hyperspace boundary...");
 
-      PlayerController player = col.gameObject.GetComponent<PlayerController>();
+      ShipController player = col.gameObject.GetComponent<ShipController>();
       player.hyperspaceMenu.SetActive (true);
 
       HyperspaceBoundaryMenuInterface hyperspaceInterface = player.hyperspaceMenu.GetComponent<HyperspaceBoundaryMenuInterface>();
@@ -21,7 +21,7 @@ public class HyperspaceBoundary : MonoBehaviour {
     if (col.gameObject.tag == "Player") {
       Debug.Log ("Leaving hyperspace boundary...");
 
-      PlayerController player = col.gameObject.GetComponent<PlayerController>();
+      ShipController player = col.gameObject.GetComponent<ShipController>();
       player.hyperspaceMenu.SetActive (false);
 
       HyperspaceBoundaryMenuInterface hyperspaceInterface = player.hyperspaceMenu.GetComponent<HyperspaceBoundaryMenuInterface>();

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class ShipController : MonoBehaviour {
   public Rigidbody laserPrefab;
   public GameObject hyperspaceMenuPrefab;
   public GameObject hyperspaceMenu;
@@ -20,21 +20,24 @@ public class PlayerController : MonoBehaviour {
       bullet.rigidbody.AddForce(1000f * transform.right);
     }
 
-    if (Input.GetKey(KeyCode.A)) {
+    float rotateScale = 185f;
+    float rotateSpeed = rotateScale * Time.deltaTime;
+
+    if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
       rigidbody.angularVelocity = Vector3.zero;
-      transform.Rotate(Vector3.down * 1.7f);
+      transform.Rotate(Vector3.down * rotateSpeed);
     }
 
-    if (Input.GetKey(KeyCode.D)) {
+    if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
       rigidbody.angularVelocity = Vector3.zero;
-      transform.Rotate(Vector3.up * 1.7f);
+      transform.Rotate(Vector3.up * rotateSpeed);
     }
 
-    if (Input.GetKey(KeyCode.W)) {
+    if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
       rigidbody.AddForce(transform.right * 5f);
     }
 
-    if (Input.GetKey(KeyCode.S)) {
+    if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
       rigidbody.AddForce(transform.right * -5f);
     }
 

@@ -16,8 +16,8 @@ public class AsteroidController : MonoBehaviour {
       Debug.Log("trigger entered");
 
       Instantiate(sparksPrefab, transform.position, Quaternion.identity);
-      gameObject.rigidbody.AddForce(100f * col.gameObject.transform.forward);
-      gameObject.rigidbody.AddExplosionForce(1000f, col.gameObject.transform.position, 0);
+      gameObject.GetComponent<Rigidbody>().AddForce(100f * col.gameObject.transform.forward);
+      gameObject.GetComponent<Rigidbody>().AddExplosionForce(1000f, col.gameObject.transform.position, 0);
       Destroy (col.gameObject);
 
       // delete this asteroid
@@ -36,7 +36,7 @@ public class AsteroidController : MonoBehaviour {
     GameObject[] sparks = GameObject.FindGameObjectsWithTag("_asteroid_sparks");
 
     foreach (GameObject spark in sparks) {
-      if (!spark.particleSystem.IsAlive()) {
+      if (!spark.GetComponent<ParticleSystem>().IsAlive()) {
         Destroy (spark);
       }
     }

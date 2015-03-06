@@ -329,8 +329,8 @@ public class PlanetController : MonoBehaviour {
   }
 
   void DisablePlayer() {
-    player.rigidbody.velocity = Vector3.zero;
-    player.rigidbody.angularVelocity = Vector3.zero;
+    player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    player.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     player.SetActive(false);
   }
 

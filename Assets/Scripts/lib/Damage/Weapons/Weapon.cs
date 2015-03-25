@@ -23,6 +23,7 @@ namespace Assets.Scripts.lib.Damage.Weapons
 
         protected virtual void FixedUpdate()
         {
+			Debug.Log ("Weapon Fixed Update");
             var dist = Vector3.Distance(GameUtility.Player.transform.position, transform.position);
 
             if (dist > MaxDistance)

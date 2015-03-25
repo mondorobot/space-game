@@ -12,8 +12,9 @@ namespace Assets.Scripts.lib.Damage.Weapons
 
         private GameObject player;
 
-        protected virtual void FixedUpdate()
+        protected override void FixedUpdate()
         {
+			Debug.Log ("Bullet Fixed Update");
             base.FixedUpdate();
         }
     }

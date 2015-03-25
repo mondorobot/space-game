@@ -11,8 +11,15 @@ namespace Assets.Scripts.lib
 
     public abstract class DestructibleObject : MonoBehaviour, IDestructibleObject
     {
-        public int Life { get; set; }
+        [SerializeField] private int _life;
+
         public IDictionary<ResistanceType, Resistance> Resistances { get; set; }
+
+        public int Life
+        {
+            get { return _life; }
+            set { _life = value; }
+        }
 
         protected virtual double GetDamageReduction(DamageType type)
         {

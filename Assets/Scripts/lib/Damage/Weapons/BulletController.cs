@@ -14,7 +14,6 @@ namespace Assets.Scripts.lib.Damage.Weapons
 
         protected override void FixedUpdate()
         {
-			Debug.Log ("Bullet Fixed Update");
             base.FixedUpdate();
         }
     }

@@ -22,7 +22,6 @@ namespace Assets.Scripts
 
             if (col.gameObject.GetComponent<IDamage>() !=null)
             {
-                Debug.Log("I am IDamage");
                 Instantiate(sparksPrefab, transform.position, Quaternion.identity);
 
                 Life -= col.gameObject.GetComponent<IDamage>().GetDamage();

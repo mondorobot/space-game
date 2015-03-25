@@ -1,13 +1,13 @@
 ﻿using Assets.Scripts.lib;
 using Assets.Scripts.lib.Damage.Weapons;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
     public class AsteroidController : DestructibleObject {
         //private GameObject asteroidPrefab;
         public GameObject sparksPrefab;
-        public int hitPoints;
 
         public AsteroidController()
         {

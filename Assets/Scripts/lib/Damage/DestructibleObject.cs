@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.lib.Damage;
+using UnityEngine;
 
 namespace Assets.Scripts.lib
 {
@@ -8,7 +9,7 @@ namespace Assets.Scripts.lib
         void Damage(DamageType type, int quantity);
     }
 
-    abstract class DestructibleObject : IDestructibleObject
+    public abstract class DestructibleObject : MonoBehaviour, IDestructibleObject
     {
         public int Life { get; set; }
         public IDictionary<ResistanceType, Resistance> Resistances { get; set; }

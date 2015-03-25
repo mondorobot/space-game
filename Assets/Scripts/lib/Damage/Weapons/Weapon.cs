@@ -4,15 +4,20 @@ using UnityEngine;
 
 namespace Assets.Scripts.lib.Damage.Weapons
 {
-    public abstract class Weapon : MonoBehaviour
+    public interface IDamage
+    {
+        int GetDamage();
+    }
+    public abstract class Weapon : MonoBehaviour, IDamage
     {
         public int BaseDamage { get; set; }
         public virtual decimal RangeReduction { get; set; } //per 10
         public virtual int MaxDistance { get; set; }
         private GameObject _player;
 
-        protected virtual int GetDamage(int range)
+        public virtual int GetDamage()
         {
+            int range = 0; //TODO: maybe add range, not sure how yet
             return (int) (BaseDamage - (RangeReduction * (range / 10)));
         }
 

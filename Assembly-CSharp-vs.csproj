@@ -51,12 +51,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AsteroidController.cs" />
-    <Compile Include="Assets\Scripts\BulletController.cs" />
+    <Compile Include="Assets\Scripts\lib\Damage\Weapons\BulletController.cs" />
+    <Compile Include="Assets\Scripts\lib\Damage\DestructibleObject.cs" />
     <Compile Include="Assets\Scripts\GalaxyTravelMenu.cs" />
     <Compile Include="Assets\Scripts\GalaxyTravelNode.cs" />
     <Compile Include="Assets\Scripts\GameCore.cs" />
     <Compile Include="Assets\Scripts\HyperspaceBoundary.cs" />
     <Compile Include="Assets\Scripts\HyperspaceBoundaryMenuInterface.cs" />
+    <Compile Include="Assets\Scripts\lib\Damage\Resistances.cs" />
+    <Compile Include="Assets\Scripts\lib\Damage\Weapons\Weapon.cs" />
+    <Compile Include="Assets\Scripts\lib\GameConstants.cs" />
+    <Compile Include="Assets\Scripts\lib\Utilities\GameUtility.cs" />
     <Compile Include="Assets\Scripts\MenuItemForSale.cs" />
     <Compile Include="Assets\Scripts\MenuItemToSell.cs" />
     <Compile Include="Assets\Scripts\PlanetController.cs" />
@@ -70,6 +75,7 @@
     <Compile Include="Assets\Scripts\lib\serializable\PlayerData.cs" />
     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	   Other similar extension points exist, see Microsoft.Common.targets.

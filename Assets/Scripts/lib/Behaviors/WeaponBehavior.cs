@@ -1,14 +1,14 @@
-﻿
+﻿using Assets.Scripts.lib.Damage;
 using Assets.Scripts.lib.Utilities;
 using UnityEngine;
 
-namespace Assets.Scripts.lib.Damage.Weapons
+namespace Assets.Scripts.lib.Behaviors
 {
 	public interface IDamage
 	{
 		int GetDamage();
 	}
-	public abstract class Weapon : MonoBehaviour, IDamage
+	public abstract class WeaponBehavior : MonoBehaviour, IDamage
 	{
 	    [SerializeField] 
         private int _baseDamage;
@@ -17,7 +17,7 @@ namespace Assets.Scripts.lib.Damage.Weapons
         [SerializeField]
         private int _maxDistance;
 	    [SerializeField] 
-        private DamageType _dameType;
+        private DamageType _damageType;
         
 
 		private GameObject _player;
@@ -38,6 +38,12 @@ namespace Assets.Scripts.lib.Damage.Weapons
 	    {
 	        get { return _baseDamage; }
 	        set { _baseDamage = value; }
+	    }
+
+	    public DamageType DamageType
+	    {
+	        get { return _damageType; }
+	        set { _damageType = value; }
 	    }
 
 	    public virtual int GetDamage()

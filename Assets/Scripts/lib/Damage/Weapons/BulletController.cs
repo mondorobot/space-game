@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 
 namespace Assets.Scripts.lib.Damage.Weapons
 {
@@ -18,3 +19,4 @@ namespace Assets.Scripts.lib.Damage.Weapons
         }
     }
 }
+*/

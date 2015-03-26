@@ -1,4 +1,6 @@
 ﻿
+using Assets.Scripts.lib.Behaviors;
+
 namespace Assets.Scripts.lib.Damage
 {
     public class Resistance

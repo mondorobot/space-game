@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.lib.Damage;
-using Assets.Scripts.lib.Behaviors;
+﻿using Assets.Scripts.Destroy;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -19,7 +18,7 @@ namespace Assets.Scripts
                 Debug.Log ("shoot!");
                 Rigidbody bullet = (Rigidbody) Instantiate(laserPrefab, transform.position, Quaternion.identity);
 
-				bullet.GetComponent<WeaponBehavior>().Owner = ProjectileOwner.Self;
+				bullet.GetComponent<DestroyByContactBehavior>().Owner = ProjectileOwner.Self;
                 bullet.transform.Rotate(transform.rotation.eulerAngles);
                 bullet.GetComponent<Rigidbody>().AddForce(1000f * transform.right);
             }

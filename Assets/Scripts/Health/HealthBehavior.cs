@@ -7,12 +7,26 @@ namespace Assets.Scripts.Health {
 	public class HealthBehavior : MonoBehaviour
 	{
 		public Slider slider;
+		public Text gameOver;
+		public Button playAgain;
+		public Text playAgainText;
 
 		public int Life;
 		[HideInInspector]
 		public int CurrentLife;
 
 		void Start() {
+			if (gameOver != null) {
+				gameOver.enabled = false;
+				playAgain.onClick.AddListener (() => {
+					GameCore.self.InitNewGame();
+				});
+				playAgain.enabled = false;
+				playAgainText.enabled = false;
+			}
+
+		}
+		void Awake() {
 			CurrentLife = Life;
 		}
 
@@ -23,6 +37,13 @@ namespace Assets.Scripts.Health {
 		void Update() {
 			if (slider != null) {
 				slider.value =  (100 * (CurrentLife / (float)Life));
+
+				if (CurrentLife <= 0)
+				{
+					gameOver.enabled = true;
+					playAgain.enabled = true;
+					playAgainText.enabled = true;
+				}
 			}
 		}
 	}

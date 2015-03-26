@@ -8,7 +8,9 @@ namespace Assets.Scripts.Animations
 
         private void OnTriggerEnter(Collider col) //asteroid, bullet
         {
-        	Instantiate(sparksPrefab, transform.position, Quaternion.identity);
+			if (col.tag != "boundary") {
+				Instantiate(sparksPrefab, transform.position, Quaternion.identity);
+			}
         }
 
         void LateUpdate()

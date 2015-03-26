@@ -32,8 +32,11 @@ namespace Assets.Scripts.Destroy
 				
     				if (health != null) {
 					health.CurrentLife -= base.GetDamage();
-					if (health.CurrentLife <= 0)
+					if (health.CurrentLife <= 0) {
+						col.gameObject.GetComponent<HealthBehavior>().SendMessage("Update");
 						Destroy(col.gameObject);
+
+					}
 				}
 			}
 

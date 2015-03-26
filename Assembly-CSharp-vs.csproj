@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\SceneCore.cs" />
      <Compile Include="Assets\Scripts\ShipController.cs" />
      <Compile Include="Assets\Scripts\lib\Animations\SparksCollisionAnimation.cs" />
+     <Compile Include="Assets\Scripts\lib\Behaviors\CollisionBehavior.cs" />
      <Compile Include="Assets\Scripts\lib\Behaviors\DestructibleBehavior.cs" />
      <Compile Include="Assets\Scripts\lib\Behaviors\WeaponBehavior.cs" />
      <Compile Include="Assets\Scripts\lib\Damage\DamageTypes.cs" />

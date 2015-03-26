@@ -4,9 +4,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.lib.Behaviors
 {
+	public enum ProjectileOwner {
+		Self,
+		Enemy,
+		Environment
+	}
 	public interface IDamage
 	{
 		int GetDamage();
+		ProjectileOwner WhosWeapon();
 	}
 	public class WeaponBehavior : MonoBehaviour, IDamage
 	{
@@ -18,7 +24,7 @@ namespace Assets.Scripts.lib.Behaviors
         private int _maxDistance;
 	    [SerializeField] 
         private DamageType _damageType;
-        
+		public ProjectileOwner Owner;
 
 		private GameObject _player;
 
@@ -45,6 +51,10 @@ namespace Assets.Scripts.lib.Behaviors
 	        get { return _damageType; }
 	        set { _damageType = value; }
 	    }
+
+		public ProjectileOwner WhosWeapon(){
+			return Owner;
+		}
 
 	    public virtual int GetDamage()
 		{

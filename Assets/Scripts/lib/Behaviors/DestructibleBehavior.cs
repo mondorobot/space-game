@@ -41,19 +41,17 @@ namespace Assets.Scripts.lib.Behaviors
 
         void OnTriggerEnter(Collider col)
         {
-
-            if (col.gameObject.GetComponent<IDamage>() != null)
+			var damage = col.gameObject.GetComponent<IDamage>();
+            if (damage != null && damage.WhosWeapon() != ProjectileOwner.Self)
             {
                 //Instantiate(sparksPrefab, transform.position, Quaternion.identity);
 
-                Life -= col.gameObject.GetComponent<IDamage>().GetDamage();
+                Life -= damage.GetDamage();
                 if (Life <= 0)
                     Destroy(gameObject);
-                else
+                else 
                 {
-                    gameObject.GetComponent<Rigidbody>().AddForce(100f * col.gameObject.transform.forward);
-                    gameObject.GetComponent<Rigidbody>().AddExplosionForce(1000f, col.gameObject.transform.position, 0);
-                    Destroy(col.gameObject);
+					Destroy(col.gameObject);
                 }
             }
 

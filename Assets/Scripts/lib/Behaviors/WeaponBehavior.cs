@@ -8,7 +8,7 @@ namespace Assets.Scripts.lib.Behaviors
 	{
 		int GetDamage();
 	}
-	public abstract class WeaponBehavior : MonoBehaviour, IDamage
+	public class WeaponBehavior : MonoBehaviour, IDamage
 	{
 	    [SerializeField] 
         private int _baseDamage;

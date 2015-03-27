@@ -26,7 +26,7 @@ namespace Assets.Scripts
             float rotateScale = 185f;
             float rotateSpeed = rotateScale * Time.deltaTime;
 
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
                 GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 transform.Rotate(Vector3.down * rotateSpeed);
             }

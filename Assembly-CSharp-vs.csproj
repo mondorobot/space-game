@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Destroy\DestroyByContactBehavior.cs" />
      <Compile Include="Assets\Scripts\Destroy\DestroyByWeapon.cs" />
      <Compile Include="Assets\Scripts\Destroy\Resistances.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyFighterAIBehavior.cs" />
      <Compile Include="Assets\Scripts\GalaxyTravelMenu.cs" />
      <Compile Include="Assets\Scripts\GalaxyTravelNode.cs" />
      <Compile Include="Assets\Scripts\GameCore.cs" />

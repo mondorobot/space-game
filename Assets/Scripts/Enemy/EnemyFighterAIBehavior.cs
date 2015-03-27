@@ -27,25 +27,27 @@ namespace Assets.Scripts.Emeny
 	         
 
 			if(dist <= Range){
+				var direction = (transform.position - target.transform.position ).normalized;
+				var rotation = Quaternion.LookRotation(direction);
 
 				if ( Time.time > nextFire )
 				{
+
 					Rigidbody bullet = (Rigidbody) Instantiate(Weapon, transform.position, Quaternion.identity);
 					
 					bullet.GetComponent<DestroyByContactBehavior>().Owner = gameObject.GetInstanceID();// ProjectileOwner.Self;
-					//bullet.transform.Rotate(transform.rotation.eulerAngles);
-					bullet.GetComponent<Rigidbody>().AddForce(1000f * transform.position);
-					nextFire = Time.time + UnityEngine.Random.Range(0.5f,1.5f);
+					bullet.transform.Rotate(rotation.eulerAngles + new Vector3(0,90,0));
+					bullet.GetComponent<Rigidbody>().AddForce(1000f * (target.transform.position -transform.position  ).normalized);
+					nextFire = Time.time + UnityEngine.Random.Range(0.5f,1.0f);
 
 				}
 
-				var direction = (target.transform.position - transform.position).normalized;
-				var rotation = Quaternion.LookRotation(direction);
-				
-				transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 30);
-				transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 8 * Time.deltaTime);
-
-			 }
+				if ( dist > 10 )
+				{
+					transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 30);
+					transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 8 * Time.deltaTime);
+				}
+			}
 	         // Do Something
 		}
 

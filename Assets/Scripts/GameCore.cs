@@ -21,7 +21,8 @@ public class GameCore : MonoBehaviour {
       InitSelf();
       Load();
     } else if (self != this) {
-      Destroy(gameObject);
+			self = this;
+      //Destroy(gameObject);
     }
   }
 
@@ -37,6 +38,11 @@ public class GameCore : MonoBehaviour {
     bf.Serialize(file, data);
     file.Close();
   }
+
+	public void InitNewGame()
+	{
+		Application.LoadLevel ("Apollo Galaxy");
+	}
 
   public void Load() {
     Debug.Log("Loading, please wait...");
@@ -66,7 +72,7 @@ public class GameCore : MonoBehaviour {
     }
   }
 
-  void NewGame() {
+  public void NewGame() {
     Debug.Log("Starting a new game...");
     GameCore.self.money = 10000;
     GameCore.self.inventory = new Dictionary<string,StructInventoryItem>();

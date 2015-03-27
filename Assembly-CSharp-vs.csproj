@@ -46,28 +46,36 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Animations\SparksCollisionAnimation.cs" />
      <Compile Include="Assets\Scripts\AsteroidController.cs" />
+     <Compile Include="Assets\Scripts\Damage\Weapons\BulletController.cs" />
+     <Compile Include="Assets\Scripts\Destroy\BaseDamage.cs" />
+     <Compile Include="Assets\Scripts\Destroy\DamageTypes.cs" />
+     <Compile Include="Assets\Scripts\Destroy\DestroyByContactBehavior.cs" />
+     <Compile Include="Assets\Scripts\Destroy\DestroyByWeapon.cs" />
+     <Compile Include="Assets\Scripts\Destroy\Resistances.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyFighterAIBehavior.cs" />
      <Compile Include="Assets\Scripts\GalaxyTravelMenu.cs" />
      <Compile Include="Assets\Scripts\GalaxyTravelNode.cs" />
      <Compile Include="Assets\Scripts\GameCore.cs" />
+     <Compile Include="Assets\Scripts\Health\HealthBehavior.cs" />
      <Compile Include="Assets\Scripts\HyperspaceBoundary.cs" />
      <Compile Include="Assets\Scripts\HyperspaceBoundaryMenuInterface.cs" />
      <Compile Include="Assets\Scripts\MenuItemForSale.cs" />
      <Compile Include="Assets\Scripts\MenuItemToSell.cs" />
+     <Compile Include="Assets\Scripts\Movement\ContactCollision.cs" />
+     <Compile Include="Assets\Scripts\Movement\ExplosionCollision.cs" />
      <Compile Include="Assets\Scripts\PlanetController.cs" />
      <Compile Include="Assets\Scripts\PlanetLandingInterface.cs" />
      <Compile Include="Assets\Scripts\PlanetTradingInterface.cs" />
      <Compile Include="Assets\Scripts\SceneCore.cs" />
      <Compile Include="Assets\Scripts\ShipController.cs" />
-     <Compile Include="Assets\Scripts\lib\Damage\DestructibleObject.cs" />
-     <Compile Include="Assets\Scripts\lib\Damage\Resistances.cs" />
-     <Compile Include="Assets\Scripts\lib\Damage\Weapons\BulletController.cs" />
-     <Compile Include="Assets\Scripts\lib\Damage\Weapons\Weapon.cs" />
+     <Compile Include="Assets\Scripts\Utilities\GameUtility.cs" />
+     <Compile Include="Assets\Scripts\Weapon\RangedWeaponBehavior.cs" />
      <Compile Include="Assets\Scripts\lib\GameConstants.cs" />
      <Compile Include="Assets\Scripts\lib\StructInventoryItem.cs" />
      <Compile Include="Assets\Scripts\lib\StructItemType.cs" />
      <Compile Include="Assets\Scripts\lib\StructSaleItem.cs" />
-     <Compile Include="Assets\Scripts\lib\Utilities\GameUtility.cs" />
      <Compile Include="Assets\Scripts\lib\serializable\PlayerData.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="Assembly-UnityScript-firstpass">

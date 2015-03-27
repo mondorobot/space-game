@@ -48,11 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Animations\SparksCollisionAnimation.cs" />
      <Compile Include="Assets\Scripts\AsteroidController.cs" />
-     <Compile Include="Assets\Scripts\Damage\Weapons\BulletController.cs" />
      <Compile Include="Assets\Scripts\Destroy\BaseDamage.cs" />
      <Compile Include="Assets\Scripts\Destroy\DamageTypes.cs" />
      <Compile Include="Assets\Scripts\Destroy\DestroyByContactBehavior.cs" />
-     <Compile Include="Assets\Scripts\Destroy\DestroyByWeapon.cs" />
      <Compile Include="Assets\Scripts\Destroy\Resistances.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyFighterAIBehavior.cs" />
      <Compile Include="Assets\Scripts\GalaxyTravelMenu.cs" />

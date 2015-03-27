@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Animations\SparksCollisionAnimation.cs" />
-     <Compile Include="Assets\Scripts\AsteroidController.cs" />
      <Compile Include="Assets\Scripts\Destroy\BaseDamage.cs" />
      <Compile Include="Assets\Scripts\Destroy\DamageTypes.cs" />
      <Compile Include="Assets\Scripts\Destroy\DestroyByContactBehavior.cs" />

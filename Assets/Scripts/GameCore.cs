@@ -21,7 +21,8 @@ public class GameCore : MonoBehaviour {
       InitSelf();
       Load();
     } else if (self != this) {
-      Destroy(gameObject);
+			self = this;
+      //Destroy(gameObject);
     }
   }
 

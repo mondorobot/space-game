@@ -25,9 +25,10 @@ namespace Assets.Scripts.Destroy
 //            Life = Life - (int)(quantity*GetDamageReduction(type));
 //        }
 
-        void OnTriggerEnter(Collider col) //can be asteroid, bullet
+        void OnCollisionEnter(Collision collision) //can be asteroid, bullet
         {
-			if (col.tag != gameObject.tag) { //asteroids don't hurt each other
+			var col = collision.collider;
+			if (col.tag != gameObject.tag &&  Owner != col.gameObject.GetInstanceID()) { //asteroids don't hurt each other
 				var health = col.gameObject.GetComponent<HealthBehavior>();
 				
     				if (health != null) {

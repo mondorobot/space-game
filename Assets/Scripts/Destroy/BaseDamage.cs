@@ -13,7 +13,7 @@ namespace Assets.Scripts.Destroy {
 		public int Damage;
 		public DamageType DamageType;
 		[HideInInspector]
-		public ProjectileOwner Owner;
+		public int Owner;
 		
 		public int GetDamage()
 		{

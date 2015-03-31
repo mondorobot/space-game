@@ -3,6 +3,7 @@ using Assets.Scripts.Destroy;
 using Assets.Scripts.Weapon;
 using System.Collections.Generic;
 using System.Linq;
+using UnitySteer.Behaviors;
 
 using System;
 namespace Assets.Scripts.Emeny
@@ -26,8 +27,20 @@ namespace Assets.Scripts.Emeny
 				OrderBy (go => Vector3.Distance (go.transform.position, transform.position)).FirstOrDefault ();
 			 
 			float dist = Vector3.Distance (target.transform.position, transform.position);
-	         
+			var pursuit = gameObject.GetComponent<SteerForPursuit> ();
+			var wander = gameObject.GetComponent<SteerForWander> ();
+			var pursue = false;
+
 			if (dist <= Range) {
+				var detectable = target.GetComponent<DetectableObject> ();
+				if (detectable != null) {
+					if (pursuit != null) {
+						pursuit.Quarry = detectable;
+						pursue = true;
+					}
+
+				}
+
 				var direction = (transform.position - target.transform.position).normalized;
 				var rotation = Quaternion.LookRotation (direction);
 
@@ -40,11 +53,14 @@ namespace Assets.Scripts.Emeny
 					nextFire = Time.time + UnityEngine.Random.Range (1.0f, 2.0f);
 				}
 
-				if (dist > 10) {
-					transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * 30);
-					transform.position = Vector3.MoveTowards (transform.position, target.transform.position, 8 * Time.deltaTime);
-				}
+//				if (dist > 10) {
+//					transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * 30);
+//					transform.position = Vector3.MoveTowards (transform.position, target.transform.position, 8 * Time.deltaTime);
+//				}
 			}
+			wander.enabled = !pursue;
+			pursuit.enabled = pursue;
+
 		}
 
 		void Update ()

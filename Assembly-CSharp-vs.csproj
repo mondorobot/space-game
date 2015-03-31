@@ -74,12 +74,56 @@
      <Compile Include="Assets\Scripts\lib\StructItemType.cs" />
      <Compile Include="Assets\Scripts\lib\StructSaleItem.cs" />
      <Compile Include="Assets\Scripts\lib\serializable\PlayerData.cs" />
+     <Compile Include="Assets\UnitySteer\Attributes\AngleCosineAttribute.cs" />
+     <Compile Include="Assets\UnitySteer\Attributes\RangeAttribute.cs" />
+     <Compile Include="Assets\UnitySteer\Attributes\Vector3ToggleAttribute.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\AutonomousVehicle.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\Biped.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\DetectableObject.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\PassiveVehicle.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\Radar.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForAlignment.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForCharacterEvasion.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForCohesion.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForEvasion.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForFear.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForForward.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForMatchingVelocity.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForMinimumSpeed.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForNavmesh.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForNeighborGroup.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForNeighbors.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForPathSimplified.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForPoint.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForPursuit.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForSeparation.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForSpeed.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForSpeedFluctuation.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForSphericalObstacles.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForTether.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerForWander.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\SteerToFollow.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\Steering.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\TickedVehicle.cs" />
+     <Compile Include="Assets\UnitySteer\Behaviors\Vehicle.cs" />
+     <Compile Include="Assets\UnitySteer\IPathway.cs" />
+     <Compile Include="Assets\UnitySteer\OpenSteerUtility.cs" />
+     <Compile Include="Assets\UnitySteer\SplinePathway.cs" />
+     <Compile Include="Assets\UnitySteer\TickedPriorityQueue\UnityTickedQueue.cs" />
+     <Compile Include="Assets\UnitySteer\Tools\DetectableObjectCreator.cs" />
+     <Compile Include="Assets\UnitySteer\Tools\RandomizeStartPosition.cs" />
+     <Compile Include="Assets\UnitySteer\Tools\Speedometer.cs" />
+     <Compile Include="Assets\UnitySteer\Vector3Pathway.cs" />
+     <None Include="Assets\UnitySteer\TickedPriorityQueue\LICENSE.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/rob/root/git/space-game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="TickedPriorityQueue">
+ <HintPath>/Users/rob/root/git/space-game/Assets/UnitySteer/TickedPriorityQueue/TickedPriorityQueue.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
